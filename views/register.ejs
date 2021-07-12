@@ -1,0 +1,29 @@
+<%- include ('partials/header.ejs') %>
+<div class="nav">
+    <a class="center" href="/"><h1>CLKSNEAKERS</h1></a>
+    <li><a class="login" href="/teste">Login</a></li>
+</div>
+
+
+<div class="row">
+    <form action="/auth/register" method="POST">
+        <div class="form-group">
+            <label >Email:</label>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="form-group">
+            <label>ConfirmPassword:</label>
+            <input type="password" class="form-control" name="passwordConfirm">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </form>
+
+</div>
+
+
