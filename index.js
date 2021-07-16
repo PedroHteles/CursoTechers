@@ -27,7 +27,18 @@ ep.use(express.json());
 //rotas
 
 ep.use('/',require('./routes/pages'));
-ep.use('/auth',require('./routes/auth'));
+
+ep.post("/auth/register", (req, res) => {
+    var usuario = req.body.email
+    var senha = req.body.password
+
+    logintabela.create({
+        user:usuario,
+        senha: senha
+    }).then(() => {
+        res.redirect('/')
+    })
+})
 
 
 
