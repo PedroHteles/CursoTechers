@@ -2,6 +2,8 @@ const express = require("express");
 const ep = express();
 
 
+
+
 ep.get("/", (req, res) =>{
     var msg = "aopa"
     res.render("index.ejs")

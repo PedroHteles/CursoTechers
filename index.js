@@ -1,10 +1,14 @@
 const express = require("express");
-const mysql = require("mysql");
 const ep = express();
 const dotenv = require('dotenv')
+const connection = require("./banco/banco");
+const logintabela = require("./banco/Login");
 
-
-
+connection.authenticate().then(() => {
+    console.log("conectado ao mysql");
+}).catch((erro) =>{
+    console.log(erro)
+})
 
 dotenv.config({path: './.env'})
 
@@ -15,20 +19,9 @@ ep.use(express.static('public'));
 ep.use(express.urlencoded({extended: false}));
 ep.use(express.json());
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    database: process.env.DATABASE
-});
 
-db.connect((error) => {
-    if(error) {
-        console.log(error)
-    } else {
-        console.log("MYSQL Conected")
-    }
-});
+
+
 
 
 //rotas
