@@ -41,14 +41,42 @@ ep.post("/auth/register",  async (req, res) => {
         return res.json({ message: "Email ou usuiario ja existe!"})
     }
 
+    let senha = await bcrypt.hash(password, 8);
+
+    const newUser = new User({user,senha});
+    const savedUser = await newUser.save().catch((err) =>{
+        console.log(err);
+        res.json({ error : "nao foi"});
+    })
+
+    if(savedUser) res.json({message: "foi"})
+
+})
+
+
+ep.post("/login",  async (req, res) => {
+    const {user} = req.body
+
+    const userWithEmail = await User.findOne({ where: {user}  }).catch((err) =>{
+        console.log(err);
+    });
+    if(!userWithEmail){
+        return res.json({ message: "Email ou usuiario ja existe!"})
+    }
+
+    if (userWithEmail) {
+        const password = await bcrypt.compare(req.body.password, userWithEmail.senha);
+        if(password === true)
+            res.json({ message: "Logado"})
+    }
 
 
 
 
 
     
-})
 
+})
 
 
 
