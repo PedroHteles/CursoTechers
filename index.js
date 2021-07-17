@@ -2,7 +2,9 @@ const express = require("express");
 const ep = express();
 const dotenv = require('dotenv')
 const connection = require("./banco/banco");
-const logintabela = require("./banco/Login");
+const User = require("./banco/Login");
+const bcrypt = require('bcrypt');
+
 
 connection.authenticate().then(() => {
     console.log("conectado ao mysql");
@@ -28,16 +30,23 @@ ep.use(express.json());
 
 ep.use('/',require('./routes/pages'));
 
-ep.post("/auth/register", (req, res) => {
-    var usuario = req.body.email
-    var senha = req.body.password
+ep.post("/auth/register",  async (req, res) => {
+    const {user, password, passwordConfirm} = req.body
 
-    logintabela.create({
-        user:usuario,
-        senha: senha
-    }).then(() => {
-        res.redirect('/')
-    })
+    const userWithEmail = await User.findOne({ where: {user}  }).catch((err) =>{
+        console.log(err);
+    });
+
+    if(userWithEmail){
+        return res.json({ message: "Email ou usuiario ja existe!"})
+    }
+
+
+
+
+
+
+    
 })
 
 

@@ -8,12 +8,7 @@ ep.post("/register", (req, res) => {
     var usuario = req.body.email
     var senha = req.body.password
 
-    logintabela.create({
-        user:usuario,
-        senha: senha
-    }).then(() => {
-        res.redirect('/')
-    })
+
 })
 
 

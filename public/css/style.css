@@ -10,6 +10,7 @@ h1{
 
 a{
     text-decoration: none;
+    color: whitesmoke;
 }
 .login{
 
@@ -19,6 +20,9 @@ a{
 
 }
 
+.FormLogin{
+    margin-top: 15%;
+}
 
 .nav {
     display: flex;
@@ -82,3 +86,109 @@ html, body {
 }
 
 
+
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: black;
+    padding: 70px 0;
+}
+.estiloFooter{
+   text-align: center;
+   width: 33%;
+   padding: 0 15px;
+}
+.estiloFooter h4{
+	font-size: 18px;
+	color: black;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+
+.estiloFooter ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.estiloFooter ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: whitesmoke;
+	text-decoration: none;
+	font-weight: 300;
+	color: whitesmoke;
+	display: block;
+	transition: all 0.3s ease;
+}
+.estiloFooter ul li a:hover{
+	color: aquamarine;
+	padding-left: 8px;
+}
+.estiloFooter .redesSociais a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: aquamarine;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: aquamarine;
+	transition: all 0.5s ease;
+}
+.estiloFooter .redesSociais a:hover{
+	color: #24262b;
+	background-color: black;
+}
+
+@media(max-width: 767px){
+  .estiloFooter{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .estiloFooter{
+    width: 100%;
+}
+}
+
+div.box {
+	width: 150px;
+	display: inline-block;
+	padding: 20px;
+	margin-left: 1.5%;
+}
+
+img {
+	width: 150px;
+}
+
+
+
+.h1Sobre{
+	margin-left: 2.5%;
+	margin-top: 3%;
+	font-weight: normal;
+}
+
+
+.pSobre {
+	display: flex;
+	margin-top: 1%;
+	margin-left: 2.1%;
+
+}
+
+.imgSobre {
+	width: 40%;
+	margin-left: 10%;
+	margin-bottom: 2%;
+	margin-top: -2.5%;
+}
